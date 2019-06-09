@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ManchPostApp</string>
+    <string name="add_new_post">Add New Post</string>
+    <string name="save">SAVE</string>
+    <string name="enter_title">Enter title</string>
+    <string name="enter_post">Enter post</string>
+    <string name="invalid_input">Invalid input</string>
+</resources>
