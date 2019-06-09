@@ -20,15 +20,15 @@ public class PostViewModel extends ViewModel {
     }
 
 
-    public LiveData<List<Post>> getUsers() {
+    public LiveData<List<Post>> getPosts() {
         if (posts == null) {
             posts = new MutableLiveData<List<Post>>();
-            loadUsers();
+            loadPosts();
         }
         return posts;
     }
 
-    private void loadUsers() {
+    private void loadPosts() {
         posts = postService.getMutablePostAll();
     }
 }

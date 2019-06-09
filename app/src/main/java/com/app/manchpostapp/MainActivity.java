@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         initialize();
         initializeListener();
         PostViewModel model = ViewModelProviders.of(this).get(PostViewModel.class);
-        model.getUsers().observe(this, posts -> {
+        model.getPosts().observe(this, posts -> {
             if (posts != null) {
                 Collections.reverse(posts);
                 postList = posts;
