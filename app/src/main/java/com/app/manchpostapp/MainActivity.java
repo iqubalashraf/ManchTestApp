@@ -6,6 +6,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
 import com.app.manchpostapp.adapters.PostListAdapter;
 import com.app.manchpostapp.data.Post;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fab_add_post;
     RecyclerView post_list;
     private PostListAdapter adapter;
+    TextView tv_no_post;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +33,16 @@ public class MainActivity extends AppCompatActivity {
         initializeListener();
         PostViewModel model = ViewModelProviders.of(this).get(PostViewModel.class);
         model.getPosts().observe(this, posts -> {
-            if (posts != null) {
+            if (posts != null && posts.size() > 0) {
+                post_list.setVisibility(View.VISIBLE);
+                tv_no_post.setVisibility(View.GONE);
                 Collections.reverse(posts);
                 postList = posts;
                 adapter.setPosts(posts);
                 adapter.notifyDataSetChanged();
+            } else {
+                post_list.setVisibility(View.GONE);
+                tv_no_post.setVisibility(View.VISIBLE);
             }
         });
 
@@ -43,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initialize() {
         adapter = new PostListAdapter();
+        tv_no_post = findViewById(R.id.tv_no_post);
         fab_add_post = findViewById(R.id.fab_add_post);
         post_list = findViewById(R.id.post_list);
         post_list.setLayoutManager(new LinearLayoutManager(this));

@@ -6,4 +6,5 @@
     <string name="enter_post">Enter post</string>
     <string name="invalid_input">Invalid input</string>
     <string name="added_successfully">Added Successfully</string>
+    <string name="no_post_msg">No post, use plus button to add new post</string>
 </resources>
