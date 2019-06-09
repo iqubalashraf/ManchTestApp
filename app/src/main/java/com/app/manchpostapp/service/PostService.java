@@ -1,11 +1,13 @@
 package com.app.manchpostapp.service;
 
+import android.arch.lifecycle.LiveData;
+
 import com.app.manchpostapp.data.Post;
 
 import java.util.List;
 
 public interface PostService {
-    List<Post> getAll();
+    LiveData<List<Post>> getMutablePostAll();
 
     void insertAll(Post... users);
 }

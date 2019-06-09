@@ -24,12 +24,8 @@ public class PostInsertHandler extends AsyncTask<Void, Void, Boolean> {
 
     @Override
     protected Boolean doInBackground(Void... voids) {
-
         postService.insertAll(new Post(uid, title, description));
-
-        Log.d("Ashraf", postService.getAll().get(0).getDescription());
-
-        return null;
+        return true;
     }
 
     @Override

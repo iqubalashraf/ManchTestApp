@@ -1,5 +1,7 @@
 package com.app.manchpostapp.service;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MutableLiveData;
 import android.content.Context;
 
 import com.app.manchpostapp.data.AppDatabase;
@@ -16,8 +18,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> getAll() {
-        return postDao.getAll();
+    public LiveData<List<Post>> getMutablePostAll() {
+        return postDao.getMutablePostAll();
     }
 
     @Override
